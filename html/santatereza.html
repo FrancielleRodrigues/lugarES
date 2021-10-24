@@ -1,0 +1,274 @@
+<!--<?php 
+include_once("../conexao/conexao.php")
+?>-->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/estilo.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-with-logo.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+    <title>Central Serrana</title>
+</head>
+
+<body>
+    <header>
+        <!--Inicio Cabecalho-->
+
+        <nav class="navbar fixed-top  navbar-expand-lg navbar-light" style="background-color: #049DD9; position: fixed-top">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" style="color: #ffff;" href="index.html">Início<span class="sr-only">(Página atual)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: #ffff;" href=".informacoes">Informações</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Metropolitana
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="guarapari.html">Guarapari</a>
+                                <a class="dropdown-item" href="viana.html">Viana</a>
+                            
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Central Serrana
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="santatereza.html">Santa Tereza</a>
+                                <a class="dropdown-item" href="santamaria.html">Santa Mária de Jetibá</a>
+                            
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Sudoeste Serrana
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="domingosmartins.html">Domingos Martins</a>
+                                <a class="dropdown-item" href="#">Conceição do Castelo</a>
+                            
+                            </div>
+                        </div>
+                    </li>
+					
+					<li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Litoral Sul
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Marataízes</a>
+                                <a class="dropdown-item" href="#">Anchieta</a>
+                            
+                            </div>
+                        </div>
+                    </li>
+					
+					<li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Central Sul
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Chachoeiro de Itapemirim</a>
+                                <a class="dropdown-item" href="#">Mimoso do Sul</a>
+                            
+                            </div>
+                        </div>
+                    </li>
+					
+					<li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Caparaó
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Dores do Rio Preto</a>
+                                <a class="dropdown-item" href="#">São Jose do Calçado</a>
+                            
+                            </div>
+                        </div>
+                    </li>
+					
+					<li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Rio Doce
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Linhares</a>
+                                <a class="dropdown-item" href="#">Soretama</a>
+								
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--Campo de Busca-->
+                <div class="form-inline my-2 my-lg-0">
+                    <form class="form-ij nline col-lg-offset-7">
+                        <div class="input-group">
+                            <input class="form-control" type="search" placeholder="O que você procura?">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-light">
+                                    <img style="width: 20px;" src="lupa.png">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+        </nav>
+
+    </header>
+    <!--Fim Cabecalho-->
+
+    <div class="container marketing">
+
+    
+        <div>
+            <h1 class="p-4" style="text-align: center;">Santa Tereza</h1>
+        </div>
+
+
+        <!-- COMEÇAM AS MENCIONADAS FEATUREZINHAS xD -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Conheça!<br><span class="text-muted"> Museu da Imigração Pomerana</span>
+                </h2>
+                <p class="lead">
+                    OMuseu de Imigração Pomerana funcionou em uma casa típica do início da década de 30 do Século XX até
+                    2011. Neste ano foi entregue outra casa construída no mesmo local da anterior, respeitando o modelo
+                    de construção dos imigrantes e com instalações apropriadas para abrigar o acervo.
+                    Acervo de Mapas, painéis, tabelas, utensílios domésticos, textos, objetos e uma infinidade de
+                    histórias contam sobre a chegada dos pomeranos para a colônia de Santa Maria de Jetibá, em data
+                    estimada em 1857.
+
+                </p>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-fluid mx-auto rounded" src="museu-pomerana.png"
+                    alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /FIM DAS FEATUREZINHAS *-* -->
+
+    </div><!-- /.container -->
+
+
+
+
+
+    <div class="content">
+    </div>
+    <footer id="myFooter"
+        style="background-color: #F2A0C6; position: fixed-bottom; height: 200px; bottom: 0; width: 100%;" class="p-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul>
+                        <div class="container">
+                            <h2 class="logo"><a href="index.html">
+                                    <img src="logo-footer.png">
+                                </a></h2>
+                    </ul>
+                </div>
+
+
+                <div class="col-sm-6 info" style="color: #ffff;">
+                    <h5>Principais Informações</h5>
+                    <p> Aqui no LugarES você encontra as principais informações sobre os locais do estado do Espirito
+                        Santo. Como por exemplo Hospitais, Postos de Saúde, Instituiçoes Governamentais, Roteiro de
+                        Viagens, Informações sobre Transporte e muito mais.</p>
+                </div>
+            </div>
+        </div>
+        <div class="second-bar">
+
+
+        </div>
+        </div>
+    </footer>
+    </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Unidades Básicas de Saúde</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/estilo.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-with-logo.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+	
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #049DD9;">
+        <a class="navbar-brand" href="index.html">
+            <img src="logo.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" style="color: #ffff;" href="index.html">Início<span class="sr-only">(Página atual)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #ffff;" href=".informacoes">Informações</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #ffff;" href="metropolitana.html">Metropolitana</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #ffff;" href="#">Norte</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #ffff;" href="#">Rio Doce</a>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown ">
+                        <a class=" nav-link btn btn-outline-light dropdown-toggle" href="#" role="button"
+                            id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            style=" font-size: small;">
+                            Regiões
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="metropolitana.html">Metropolitana</a>
+                            <a class="dropdown-item" href="#">Central Serrana</a>
+                            <a class="dropdown-item" href="#">Sudoeste Serrana</a>
+                        </div>
+                    </div>
+                </li>
+
+
+            </ul>
+            <!--Campo de Busca-->
+            <div class="form-inline my-2 my-lg-0">
+                <form class="form-ij nline col-lg-offset-7">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="O que você procura?">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-light">
+                                <img style="width: 20px;" src="lupa.png">
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+    </nav>
+
+
+    <h1 style="text-align: center;">Unidades Básicas de Saúde</h1> <br>
+
+
+
+
+
+    <div id="map" style="width: 400px; height: 400px;"></div>
+
+    <script>
+        var map = L.map('map').setView([-20.355339, -40.337024], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([-20.349229, -40.337293]).addTo(map)
+            .bindPopup('Unidade Básica')
+            .openPopup();
+
+    </script>
+
+
+
+</body>
+</html>

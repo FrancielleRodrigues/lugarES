@@ -1,0 +1,670 @@
+<!--<?php 
+include_once("../conexao/conexao.php")
+?>-->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/estilo.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-with-logo.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+
+    <title>Turismo</title>
+</head>
+
+<body>
+    <header>
+        <!--Inicio Cabecalho-->
+
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light"
+            style="background-color: #049DD9; position: fixed-top">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" style="color: #ffff;" href="index.html">Início<span class="sr-only">(Página
+                                atual)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: #ffff;" href="#informacoes">Informações</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Metropolitana
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="guarapari.html">Guarapari</a>
+                                <a class="dropdown-item" href="viana.html">Viana</a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Central Serrana
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="santatereza.html">Santa Tereza</a>
+                                <a class="dropdown-item" href="santamaria.html">Santa Mária de Jetibá</a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Sudoeste Serrana
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="domingosmartins.html">Domingos Martins</a>
+                                <a class="dropdown-item" href="#">Conceição do Castelo</a>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Litoral Sul
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Marataízes</a>
+                                <a class="dropdown-item" href="#">Anchieta</a>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Central Sul
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Chachoeiro de Itapemirim</a>
+                                <a class="dropdown-item" href="#">Mimoso do Sul</a>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Caparaó
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Dores do Rio Preto</a>
+                                <a class="dropdown-item" href="#">São Jose do Calçado</a>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown ">
+                            <a class=" nav-link btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" style="color: #ffff; background-color: #049DD9;"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style=" font-size: small;">
+                                Rio Doce
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Linhares</a>
+                                <a class="dropdown-item" href="#">Soretama</a>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--Campo de Busca-->
+                <div class="form-inline my-2 my-lg-0">
+                    <form class="form-ij nline col-lg-offset-7">
+                        <div class="input-group">
+                            <input class="form-control" type="search" placeholder="O que você procura?">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-light">
+                                    <img style="width: 20px;" src="lupa.png">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+        </nav>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="img-fluid d-inline-block" style="width: 100%; height: 800px;" src="escadaria.jpg"
+                        alt="Primeiro Slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="img-fluid d-inline-block" style="width: 100%; height: 800px;"
+                        src="pousada-pedra-azul.jpg" alt="Segundo Slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="img-fluid d-block" style="width: 100%; height: 800px;" src="imgvix.png"
+                        alt="Terceiro Slide">
+                </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Próximo</span>
+            </a>
+        </div>
+
+
+
+        </div>
+
+        <div class="container marketing">
+
+            <!-- Três colunas de texto, abaixo do carousel -->
+            <div style="width: 100%" class="row p-4">
+                <div class="col-sm">
+                    <img class="rounded-circle" src="saude.png" alt="Generic placeholder image" width="140"
+                        height="140">
+                    <h2>Unidades Básicas de Sáude</h2>
+                    <p>Precisando de um atendimento de urgência devido algum contra-tempo na viagem. Obtenha aqui
+                        endereços e contatos das Unidades de Saúde mais próximas de você!</p>
+                    <p><a class="btn btn btn-info" href="unidade-saude.html" role="button" data-toggle="modal"
+                        data-target=".bd-modal-ubs" >Veja mais &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-sm">
+                    <img class="rounded-circle" src="palacio.png" alt="Generic placeholder image" width="140"
+                        height="140">
+                    <h2>Instituições Governamentais</h2>
+                    <p>Para ter acessos a informações como endereço, contatos e demais dados realionados as
+                        instituições, clique abaixo.</p>
+                    <p><a class="btn btn btn-info" href="#" role="button" data-toggle="modal"
+                        data-target=".bd-modal-gov">Veja mais &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-sm">
+                    <img class="rounded-circle" src="onibus.png" alt="Generic placeholder image" width="140"
+                        height="140">
+                    <h2>Transportes</h2>
+                    <p>Já Sabe qual seu destino, obtenha aqui maiores informações dos transportes para sua melhor
+                        locomoção nos tragétos.</p>
+                    <p><a class="btn btn btn-info" href="#" role="button" data-toggle="modal"
+                        data-target=".bd-modal-transporte">Veja mais &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-sm">
+                    <img class="rounded-circle" src="mapa.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Roteiros de Viagem</h2>
+                    <p>Tanta coisa boa pra conhecer e não consegue se decidir? Responda nossa pesquise e encontre a rota
+                        ideal para você!</p>
+                    <p><a class="btn btn btn-info" href="#" role="button" data-toggle="modal"
+                            data-target=".bd-modal-roteiro">Veja mais &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+
+
+
+
+
+            <!-- COMEÇAM AS MENCIONADAS FEATUREZINHAS xD -->
+
+            <hr class="featurette-divider">
+
+            <h1 id="informacoes">Informações</h1>
+            <br>
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Praias<br><span class="text-muted"> Bora conhecer as mais belas do
+                            ES</span></h2>
+                    <p class="lead">Escolha a cidade em que você deseja visitar e tenha acesso a todas as informações
+                        sobre as queridinhas mais visitadas</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto rounded" src="praia.jpeg"
+                        alt="Generic placeholder image">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading">Culinárias!<br><span class="text-muted"> Que tal conhecer novos
+                            sabores?</span></h2>
+                    <p class="lead">Não pode falta na rota da viajem, aquele lugar para aprecisar a culinária da cidade.
+                    </p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img class="featurette-image img-fluid mx-auto rounded" src="culinaria.png"
+                        alt="Generic placeholder image">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Pontos Históricos<br><span class="text-muted"> Para você que curte
+                            apreciar a história da cidade em que vai visitar.</span></h2>
+                    <p class="lead">Visite os pontos históricos da cidade que vai visitar e se encante ainda mais pela
+                        beleza de cada cidade que você vai visitar</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto rounded" src="escadaria.jpg"
+                        alt="Generic placeholder image">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- /FIM DAS FEATUREZINHAS *-* -->
+
+        </div><!-- /.container -->
+
+
+
+
+    </header>
+    <!--Fim Cabecalho-->
+
+
+
+
+    <div class="content">
+    </div>
+    <footer id="myFooter"
+        style="background-color: #F2A0C6; position: fixed-bottom; height: 250px; bottom: 0; width: 100%;" class="p-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <ul>
+                        <div class="container">
+                            <h2 class="logo"><a href="index.html">
+                                    <img src="logo-footer.png">
+
+
+                                </a>
+                            </h2>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <ul>
+                        <div class="container">
+                            <h2 class="logo"><a href="index.html">
+                                    <img
+                                        src="https://cdn.es.gov.br/images/logo/prodest/logomarca/left/Logomarca_Prodest_100.png" />
+                                </a>
+                            </h2>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <ul>
+                        <div class="container">
+                            <h2 class="logo"><a href="index.html">
+                                    <img
+                                        src="https://cdn.es.gov.br/images/logo/governo/brasao/right/Brasao_Governo_240.png" />
+                                </a>
+                            </h2>
+                    </ul>
+                </div>
+
+
+                <div class="col-sm-4 info" style="color: #ffff;">
+                    <h5>Principais Informações</h5>
+                    <p> Aqui no LugarES você encontra as principais informações sobre os locais do estado do Espirito
+                        Santo. Como por exemplo Hospitais, Postos de Saúde, Instituiçoes Governamentais, Roteiro de
+                        Viagens, Informações sobre Transporte e muito mais.</p>
+                </div>
+            </div>
+        </div>
+        <div class="second-bar">
+
+
+        </div>
+        </div>
+    </footer>
+    </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <div class="modal fade bd-modal-ubs" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Unidades Básicas de Saúde</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Essa é a unidade de saúde mais próxima</p>
+
+                    <div id="mapid" style="width: 400px; height: 200px;"></div>
+
+                    <script>
+            
+                        var mymap = L.map('mapid').setView([-20.316725, -40.336962], 25);
+            
+                        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                            maxZoom: 18,
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            id: 'mapbox/streets-v11',
+                            tileSize: 512,
+                            zoomOffset: -1
+                        }).addTo(mymap);
+            
+                    </script>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Pesquisar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade bd-modal-gov" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Instituições Governamentais</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Essa é a instituição governamental mais próxima</p>
+
+                    <div id="map" style="width: 400px; height: 200px;"></div>
+
+                    <script>
+            
+                        var mymap = L.map('map').setView([-20.321663, -40.339512], 30);
+            
+                        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                            maxZoom: 18,
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            id: 'mapbox/streets-v11',
+                            tileSize: 512,
+                            zoomOffset: -1
+                        }).addTo(mymap);
+            
+                    </script>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Pesquisar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-modal-transporte" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Transportes</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Esses são os pontos de ônibus mais próximos</p>
+
+                    <div id="mapi" style="width: 400px; height: 200px;"></div>
+
+                    <script>
+            
+                        var mymap = L.map('mapi').setView([-20.321663, -40.339512], 30);
+            
+                        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                            maxZoom: 18,
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            id: 'mapbox/streets-v11',
+                            tileSize: 512,
+                            zoomOffset: -1
+                        }).addTo(mymap);
+            
+                    </script>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Pesquisar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade bd-modal-roteiro" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Monte Seu Roteiro Ideal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="container">
+
+                            <div class="form-check">
+
+                                <p>Qual tipo de ambiente você gosta?</p>
+                                <input type="radio" id="montanha" name="mont-praia" value="montanha">
+                                <label class="form-check-label" for="montanha">Montanha</label>
+
+                                <input type="radio" id="praia" name="mont-praia" value="praia">
+                                <label class="form-check-label" for="praia">Praia</label>
+                            </div>
+                            <div class="form-check">
+
+                                <hr>
+                                <p>Você gosta de visitar um lugar mais calmo ou agitado?</p>
+                                <input type="radio" id="calmo" name="calmo-agitado">
+                                <label class="form-check-label" for="calmo">Calmo</label>
+
+                                <input type="radio" id="agitado" name="calmo-agitado">
+                                <label class="form-check-label" for="agitado">Agitado</label>
+                            </div>
+                            <div class="form-check">
+                                <hr>
+                                <p>Você gosta de viajar no inverno ou verão?</p>
+                                <input type="radio" id="inverno" name="inverno-verao">
+                                <label class="form-check-label" for="inverno">Inverno</label>
+
+                                <input type="radio" id="verao" name="inverno-verao">
+                                <label class="form-check-label" for="verao">Verão</label>
+                            </div>
+                            <div class="form-check">
+                                <hr>
+                                <p>Qual o tipo de passeio você gosta?</p>
+                                <input type="radio" id="historico" name="hist-cult-nat">
+                                <label class="form-check-label" for="historico">Histórico</label>
+
+                                <input type="radio" id="cultural" name="hist-cult-nat">
+                                <label class="form-check-label" for="cultural">Cultural</label>
+
+                                <input type="radio" id="natural" name="hist-cult-nat">
+                                <label class="form-check-label" for="natural">Natural</label>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button id="btn-modal" type="button" class="btn btn btn-info"
+                        data-dismiss="modal">Consultar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $("#btn-modal").click(function () {
+            if (document.getElementById("montanha").checked) {
+                $("#modalMontanha").modal();
+
+
+            } else if (document.getElementById("praia").checked) {
+
+                $('#modalPraia').modal()
+            }
+        });
+    </script>
+
+
+    <!-- Modal -->
+    <div class="modal fade bd-consulta-roteiro" id="modalMontanha" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">O seu roteiro de viagem ideal é...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Domingos Martins</h2>
+
+                    <img class="featurette-image img-fluid mx-auto rounded" src="pousada-pedra-azul.jpg"
+                        alt="Generic placeholder image">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <a class="btn btn-info" href="domingosmartins.html" role="button">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade bd-consulta-roteiro" id="modalPraia" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">O seu roteiro de viagem ideal é...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Guarapari</h2>
+
+                    <img class="featurette-image img-fluid mx-auto rounded" src="praia-do-morro.png"
+                        alt="Generic placeholder image">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <a class="btn btn-info" href="guarapari.html" role="button">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
